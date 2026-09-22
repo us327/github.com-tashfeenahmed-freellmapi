@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usman Details | Call Agent</title>
+  <style>
+    :root {
+      --ink: #182a31;
+      --muted: #6f7e80;
+      --paper: #f6f4ee;
+      --card: #fffdf8;
+      --line: #dfe5df;
+      --teal: #0c6b68;
+      --teal-dark: #074b4a;
+      --mint: #d8ece4;
+      --coral: #e77b5f;
+      --yellow: #f3c45f;
+      --shadow: 0 18px 45px rgba(24, 42, 49, .09);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .app-shell { min-height: 100vh; max-width: 1480px; margin: 0 auto; padding: 24px 34px 38px; }
+    header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 28px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: bold; letter-spacing: .02em; }
+    .brand-mark { width: 39px; height: 39px; border-radius: 12px 12px 12px 3px; background: var(--coral); color: white; display: grid; place-items: center; font-size: 20px; transform: rotate(-7deg); }
+    .brand span { font-size: 20px; }
+    .status { display: flex; align-items: center; gap: 8px; color: var(--muted); font: 600 12px/1.2 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #49a77c; box-shadow: 0 0 0 5px #d9eee4; }
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: end; padding: 28px 0 35px; }
+    .eyebrow { color: var(--coral); font: 700 12px/1 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 15px; }
+    h1 { margin: 0; max-width: 750px; font-size: clamp(42px, 6vw, 78px); line-height: .98; letter-spacing: -.045em; font-weight: 500; }
+    .hero-copy { max-width: 420px; color: var(--muted); font: 16px/1.6 Arial, sans-serif; padding-bottom: 5px; }
+    .hero-copy strong { color: var(--ink); }
+    .workspace { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(350px, .65fr); gap: 18px; }
+    .main-card, .side-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+    .main-card { padding: 28px; }
+    .side-card { padding: 25px; }
+    .section-head { display: flex; justify-content: space-between; align-items: start; gap: 18px; margin-bottom: 24px; }
+    h2 { margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -.025em; }
+    .section-note { color: var(--muted); font: 12px Arial, sans-serif; }
+    .call-panel { background: var(--teal-dark); color: #fff; border-radius: 14px; padding: 19px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 30px; }
+    .call-copy { display: flex; gap: 13px; align-items: center; }
+    .agent-avatar { width: 43px; height: 43px; border-radius: 50%; background: var(--yellow); color: var(--ink); display: grid; place-items: center; font-weight: bold; font-size: 16px; }
+    .call-copy b { display: block; margin-bottom: 4px; font-size: 15px; }
+    .call-copy span { color: #b9d2cd; font: 12px Arial, sans-serif; }
+    .call-button { border: 0; border-radius: 8px; background: #fff; color: var(--teal-dark); padding: 12px 17px; font: 700 13px Arial, sans-serif; transition: transform .2s, background .2s; }
+    .call-button:hover { transform: translateY(-2px); background: #e9f4ed; }
+    .call-button.active { background: var(--yellow); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-bottom: 30px; }
+    .service { border: 1px solid var(--line); background: #fff; border-radius: 11px; padding: 15px; min-height: 113px; text-align: left; color: var(--ink); transition: .2s; }
+    .service:hover, .service.selected { border-color: var(--teal); box-shadow: inset 0 0 0 1px var(--teal); background: #f0f7f2; }
+    .service-icon { font-size: 23px; margin-bottom: 12px; display: block; }
+    .service b { display: block; font-size: 14px; margin-bottom: 5px; }
+    .service span { display: block; color: var(--muted); font: 11px/1.4 Arial, sans-serif; }
+    .booking { border-top: 1px solid var(--line); padding-top: 25px; }
+    .booking-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .booking-top h3 { margin: 0; font-size: 18px; font-weight: 500; }
+    .timezone { color: var(--muted); font: 11px Arial, sans-serif; }
+    .date-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; margin-bottom: 19px; }
+    .date { background: transparent; border: 1px solid var(--line); border-radius: 9px; padding: 10px 4px; color: var(--muted); }
+    .date b, .date span { display: block; }
+    .date b { color: var(--ink); font-size: 18px; font-weight: 500; margin-top: 4px; }
+    .date span { font: 10px Arial, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+    .date.active { background: var(--mint); border-color: var(--teal); color: var(--teal-dark); }
+    .date.active b { color: var(--teal-dark); }
+    .slot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+    .slot { border: 1px solid var(--line); background: #fff; color: var(--ink); border-radius: 8px; padding: 12px 4px; font: 12px Arial, sans-serif; }
+    .slot:hover, .slot.active { border-color: var(--coral); background: #fff2ec; color: #a94f38; }
+    .book-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 22px; }
+    .book-row input { min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: 8px; background: #fff; padding: 13px 14px; font: 13px Arial, sans-serif; color: var(--ink); }
+    .primary { border: 0; border-radius: 8px; padding: 13px 19px; background: var(--coral); color: #fff; font: 700 13px Arial, sans-serif; white-space: nowrap; }
+    .primary:hover { background: #cf654b; }
+    .service-detail { background: var(--mint); border-radius: 12px; padding: 18px; margin-bottom: 24px; min-height: 144px; }
+    .detail-label { color: var(--teal); font: 700 10px Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 9px; }
+    .service-detail h3 { margin: 0 0 7px; font-size: 20px; font-weight: 500; }
+    .service-detail p { margin: 0; color: #44615c; font: 12px/1.55 Arial, sans-serif; }
+    .guide-list { list-style: none; padding: 0; margin: 0; }
+    .guide-list li { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .guide-list li:last-child { border: 0; }
+    .step { flex: 0 0 25px; height: 25px; border-radius: 50%; background: var(--yellow); display: grid; place-items: center; font: 700 11px Arial, sans-serif; }
+    .guide-list b { display: block; font-size: 13px; margin-bottom: 4px; }
+    .guide-list span { color: var(--muted); font: 11px/1.45 Arial, sans-serif; }
+    .confirmation { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 9px; background: #e3f4e8; color: #286443; font: 12px/1.45 Arial, sans-serif; }
+    .confirmation.visible { display: block; }
+    @media (max-width: 900px) { .hero, .workspace { grid-template-columns: 1fr; } .hero { gap: 16px; } .hero-copy { max-width: 590px; } }
+    @media (max-width: 620px) { .app-shell { padding: 20px 16px 30px; } header { padding-bottom: 15px; } .status { font-size: 10px; } .brand span { font-size: 17px; } .hero { padding: 30px 0; } h1 { font-size: 47px; } .main-card, .side-card { padding: 19px; } .service-grid { grid-template-columns: 1fr; } .service { min-height: auto; } .date-row { grid-template-columns: repeat(5, 1fr); gap: 5px; } .date { padding: 9px 2px; } .date b { font-size: 15px; } .slot-grid { grid-template-columns: repeat(2, 1fr); } .book-row { align-items: stretch; flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <div class="brand"><div class="brand-mark">U</div><span>Usman Details</span></div>
+      <div class="status"><span class="status-dot"></span> Call agent online</div>
+    </header>
+
+    <section class="hero">
+      <div><div class="eyebrow">Your dedicated concierge</div><h1>Let’s get the details sorted.</h1></div>
+      <p class="hero-copy">Talk to our call agent for clear answers, thoughtful guidance, and a time that works for you. <strong>Everything starts here.</strong></p>
+    </section>
+
+    <section class="workspace">
+      <div class="main-card">
+        <div class="section-head"><div><div class="eyebrow">01 / Talk it through</div><h2>What can we help with?</h2></div><span class="section-note">Usually replies in under a minute</span></div>
+        <div class="call-panel">
+          <div class="call-copy"><div class="agent-avatar">UD</div><div><b>Usman Details agent</b><span id="callStatus">Ready when you are</span></div></div>
+          <button class="call-button" id="callButton" type="button">☎ Start a call</button>
+        </div>
+        <div class="service-grid" aria-label="Select a service">
+          <button class="service selected" data-service="Consultation"><span class="service-icon">◌</span><b>Consultation</b><span>Talk through your needs</span></button>
+          <button class="service" data-service="Project planning"><span class="service-icon">↗</span><b>Project planning</b><span>Shape the right next step</span></button>
+          <button class="service" data-service="Support & guidance"><span class="service-icon">✦</span><b>Support & guidance</b><span>Get unstuck with an expert</span></button>
+        </div>
+        <div class="booking">
+          <div class="booking-top"><h3>Book a time to continue</h3><span class="timezone">Your local time · GMT +05</span></div>
+          <div class="date-row" id="dateRow"></div>
+          <div class="slot-grid" id="slotGrid"></div>
+          <div class="book-row"><input id="nameInput" type="text" placeholder="Your name" aria-label="Your name"><button class="primary" id="bookButton" type="button">Reserve slot</button></div>
+          <div class="confirmation" id="confirmation" role="status"></div>
+        </div>
+      </div>
+
+      <aside class="side-card">
+        <div class="section-head"><div><div class="eyebrow">02 / Service guide</div><h2>Make a good start</h2></div></div>
+        <div class="service-detail"><div class="detail-label" id="detailLabel">Selected service</div><h3 id="detailTitle">Consultation</h3><p id="detailCopy">A focused conversation to understand where you are, what you need, and how Usman Details can help.</p></div>
+        <ul class="guide-list">
+          <li><span class="step">1</span><div><b>Choose a service</b><span>Tell the agent what you’d like to accomplish.</span></div></li>
+          <li><span class="step">2</span><div><b>Pick a comfortable time</b><span>Reserve a 30-minute slot that suits your day.</span></div></li>
+          <li><span class="step">3</span><div><b>Get a clear next step</b><span>We’ll send a confirmation with everything you need.</span></div></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    const dates = [
+      { day: 'Mon', number: '22' }, { day: 'Tue', number: '23' }, { day: 'Wed', number: '24' },
+      { day: 'Thu', number: '25' }, { day: 'Fri', number: '26' }
+    ];
+    const slots = ['09:00 AM', '10:30 AM', '12:00 PM', '01:30 PM', '03:00 PM', '04:30 PM', '06:00 PM', '07:30 PM'];
+    const serviceDetails = {
+      'Consultation': 'A focused conversation to understand where you are, what you need, and how Usman Details can help.',
+      'Project planning': 'Turn an early idea into a practical route forward with priorities, milestones, and a clear scope.',
+      'Support & guidance': 'Bring a question, a challenge, or a decision. We will help you find a confident next move.'
+    };
+    let selectedDate = dates[0].number;
+    let selectedSlot = slots[1];
+    const dateRow = document.getElementById('dateRow');
+    const slotGrid = document.getElementById('slotGrid');
+    const renderDates = () => {
+      dateRow.innerHTML = dates.map(date => `<button class="date ${date.number === selectedDate ? 'active' : ''}" type="button" data-date="${date.number}"><span>${date.day}</span><b>${date.number}</b></button>`).join('');
+      dateRow.querySelectorAll('.date').forEach(button => button.addEventListener('click', () => { selectedDate = button.dataset.date; renderDates(); }));
+    };
+    slotGrid.innerHTML = slots.map((slot, index) => `<button class="slot ${index === 1 ? 'active' : ''}" type="button" data-slot="${slot}">${slot}</button>`).join('');
+    slotGrid.querySelectorAll('.slot').forEach(button => button.addEventListener('click', () => {
+      selectedSlot = button.dataset.slot;
+      slotGrid.querySelectorAll('.slot').forEach(item => item.classList.toggle('active', item === button));
+    }));
+    renderDates();
+
+    document.querySelectorAll('.service').forEach(button => button.addEventListener('click', () => {
+      const service = button.dataset.service;
+      document.querySelectorAll('.service').forEach(item => item.classList.toggle('selected', item === button));
+      document.getElementById('detailTitle').textContent = service;
+      document.getElementById('detailCopy').textContent = serviceDetails[service];
+    }));
+
+    document.getElementById('callButton').addEventListener('click', () => {
+      const button = document.getElementById('callButton');
+      const status = document.getElementById('callStatus');
+      const active = button.classList.toggle('active');
+      button.textContent = active ? '■ End call' : '☎ Start a call';
+      status.textContent = active ? 'Connecting you to an agent...' : 'Ready when you are';
+    });
+
+    document.getElementById('bookButton').addEventListener('click', () => {
+      const name = document.getElementById('nameInput').value.trim() || 'there';
+      const confirmation = document.getElementById('confirmation');
+      confirmation.textContent = `You’re all set, ${name}. Your ${selectedSlot} slot on the ${selectedDate}th is reserved. We’ll be in touch with the details.`;
+      confirmation.classList.add('visible');
+    });
+  </script>
+</body>
+</html>
